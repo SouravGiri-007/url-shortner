@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { AlertCircle, Copy, Link2, Github, Moon, Sun } from 'lucide-react';
 
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+
 const App = () => {
   const [originalUrl, setOriginalUrl] = useState('');
   const [shortUrl, setShortUrl] = useState('');
@@ -16,7 +18,7 @@ const App = () => {
     setShortUrl('');
 
     try {
-      const response = await fetch('http://localhost:3000/api/short', {
+      const response = await fetch(`${API_URL}/api/short`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

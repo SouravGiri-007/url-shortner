@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: url-shortener-backend
+    env: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: DATABASE_URL
+        sync: false

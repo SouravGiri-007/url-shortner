@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { AlertCircle, Copy, Link2, Github, Moon, Sun } from 'lucide-react';
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+const API_URL = import.meta.env.VITE_API_URL || 'https://url-shortner-a3py.onrender.com';
 
 const App = () => {
   const [originalUrl, setOriginalUrl] = useState('');
@@ -14,8 +14,7 @@ const App = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    setError('');
-    setShortUrl('');
+    
 
     try {
       const response = await fetch(`${API_URL}/api/short`, {
@@ -42,7 +41,7 @@ const App = () => {
 
   const copyToClipboard = async () => {
     try {
-      await navigator.clipboard.writeText(`http://localhost:3000/${shortUrl}`);
+      await navigator.clipboard.writeText(`${API_URL}/${shortUrl}`);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch (err) {
@@ -114,12 +113,12 @@ const App = () => {
               <h3 className={`text-lg font-medium ${darkMode ? 'text-white' : 'text-gray-900'}`}>Your shortened URL:</h3>
               <div className="mt-2 flex items-center justify-between">
                 <a
-                  href={`http://localhost:3000/${shortUrl}`}
+                  href={`${API_URL}/${shortUrl}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-blue-500 hover:text-blue-600"
                 >
-                  http://localhost:3000/{shortUrl}
+                  {`${API_URL}/${shortUrl}`}
                 </a>
                 <button
                   onClick={copyToClipboard}

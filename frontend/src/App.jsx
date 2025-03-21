@@ -140,7 +140,7 @@ const App = () => {
       <footer className={`py-6 ${darkMode ? 'bg-gray-800' : 'bg-gray-200'}`}>
         <div className="max-w-md mx-auto px-4 text-center">
           <p className={`text-sm ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-            Made with ❤️ by Your Name
+            Made with ❤️ by Sourav
           </p>
           <div className="mt-3 flex justify-center space-x-4 items-center">
             <a 
